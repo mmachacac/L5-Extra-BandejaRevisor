@@ -1,0 +1,652 @@
+
+Versión: alumno  (tienda/alumno/)
+Parte 1 · verificador y carga       0 de 12 en verde
+    - test_forma_correcta (ERROR)
+    - test_formas_incorrectas (ERROR)
+    - test_la_carga_deja_7_pendientes_y_2_fuera (ERROR)
+    - test_campo_desconocido (ERROR)
+    - test_el_motivo_no_cuenta (ERROR)
+    - test_precio_cero_o_negativo (ERROR)
+    - test_precio_dentro_del_rango_pasa (ERROR)
+    - test_precio_fuera_de_rango (ERROR)
+    - test_stock_con_decimales (ERROR)
+    - test_stock_maximo (ERROR)
+    - test_stock_negativo (ERROR)
+    - test_stock_valido (ERROR)
+Parte 2 · bandeja y acción          2 de 10 en verde
+    - test_aplica_solo_las_que_pasan (ERROR)
+    - test_aprobar_dos_veces_no_vuelve_a_aplicar (ERROR)
+    - test_deja_rastro_de_quien_decidio (ERROR)
+    - test_columnas_filtros_y_busqueda (FAIL)
+    - test_el_html_del_motivo_se_muestra_como_texto (FAIL)
+    - test_la_propuesta_no_se_retoca (FAIL)
+    - test_nadie_nace_aprobada (FAIL)
+    - test_veredicto_del_verificador_en_la_lista (FAIL)
+Parte 3 · frontera del agente       0 de  7 en verde
+    - test_el_agente_entra_a_la_bandeja (FAIL)
+    - test_el_agente_no_cambia_productos (FAIL)
+    - test_el_agente_no_puede_aprobar (FAIL)
+    - test_el_revisor_si_aprueba (ERROR)
+    - test_lo_que_propone_el_agente_queda_a_su_nombre (ERROR)
+    - test_lo_que_propone_una_persona_queda_como_persona (ERROR)
+    - test_permisos_minimos_del_agente (FAIL)
+
+27 en rojo de 29.
+======================================================================
+ERROR: test_forma_correcta (tienda.tests.test_p1_verificador.CargaTests.test_forma_correcta)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 60, in test_forma_correcta
+    producto, valor = self.validar({'producto': 'fanta', 'campo': 'stock', 'valor': '48', 'motivo': 'x'})
+                      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 57, in validar
+    return modulo('verificador').validar_forma(item)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 49, in validar_forma
+    raise NotImplementedError('TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_formas_incorrectas (tienda.tests.test_p1_verificador.CargaTests.test_formas_incorrectas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 72, in test_formas_incorrectas
+    self.validar(item)
+    ~~~~~~~~~~~~^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 57, in validar
+    return modulo('verificador').validar_forma(item)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 49, in validar_forma
+    raise NotImplementedError('TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_la_carga_deja_7_pendientes_y_2_fuera (tienda.tests.test_p1_verificador.CargaTests.test_la_carga_deja_7_pendientes_y_2_fuera)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 76, in test_la_carga_deja_7_pendientes_y_2_fuera
+    salida = correr('cargar_sugerencias')
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 22, in correr
+    call_command(comando, *args, stdout=salida)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\management\__init__.py", line 195, in call_command
+    return command.execute(*args, **defaults)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\management\base.py", line 466, in execute
+    output = self.handle(*args, **options)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\management\commands\cargar_sugerencias.py", line 39, in handle
+    raise CommandError(str(e)) from None
+django.core.management.base.CommandError: TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_campo_desconocido (tienda.tests.test_p1_verificador.VerificadorTests.test_campo_desconocido)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 44, in test_campo_desconocido
+    self.assertIn('campo desconocido', self.verificar(self.nueva('Oreo', 'nombre', '1'))[0])
+                                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_el_motivo_no_cuenta (tienda.tests.test_p1_verificador.VerificadorTests.test_el_motivo_no_cuenta)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 50, in test_el_motivo_no_cuenta
+    self.assertTrue(self.verificar(soda), 'la sugerencia con órdenes en el motivo pasó el verificador')
+                    ~~~~~~~~~~~~~~^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_precio_cero_o_negativo (tienda.tests.test_p1_verificador.VerificadorTests.test_precio_cero_o_negativo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 28, in test_precio_cero_o_negativo
+    self.assertIn('mayor que 0', self.verificar(self.nueva('Papas Lays', 'precio', valor))[0])
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_precio_dentro_del_rango_pasa (tienda.tests.test_p1_verificador.VerificadorTests.test_precio_dentro_del_rango_pasa)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 17, in test_precio_dentro_del_rango_pasa
+    self.assertEqual(self.verificar(self.nueva('Coca-Cola', 'precio', '2.70')), [])  # +8 %
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_precio_fuera_de_rango (tienda.tests.test_p1_verificador.VerificadorTests.test_precio_fuera_de_rango)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 22, in test_precio_fuera_de_rango
+    problemas = self.verificar(self.nueva('Coca-Cola', 'precio', valor))
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_stock_con_decimales (tienda.tests.test_p1_verificador.VerificadorTests.test_stock_con_decimales)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 38, in test_stock_con_decimales
+    self.assertIn('entero', self.verificar(self.nueva('Oreo', 'stock', '12.5'))[0])
+                            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_stock_maximo (tienda.tests.test_p1_verificador.VerificadorTests.test_stock_maximo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 41, in test_stock_maximo
+    self.assertIn('no puede pasar de 999', self.verificar(self.nueva('Oreo', 'stock', '1000'))[0])
+                                           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_stock_negativo (tienda.tests.test_p1_verificador.VerificadorTests.test_stock_negativo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 35, in test_stock_negativo
+    self.assertIn('negativo', self.verificar(self.nueva('Oreo', 'stock', '-10'))[0])
+                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_stock_valido (tienda.tests.test_p1_verificador.VerificadorTests.test_stock_valido)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p1_verificador.py", line 32, in test_stock_valido
+    self.assertEqual(self.verificar(self.nueva('Fanta', 'stock', valor)), [], valor)
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 54, in verificar
+    return modulo('verificador').verificar(sugerencia)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\verificador.py", line 34, in verificar
+    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+NotImplementedError: TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py
+
+
+======================================================================
+ERROR: test_aplica_solo_las_que_pasan (tienda.tests.test_p2_bandeja.AprobarTests.test_aplica_solo_las_que_pasan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 69, in test_aplica_solo_las_que_pasan
+    r = self.accion(self.admin, 'aprobar_y_aplicar', self.sin_inyeccion())
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 64, in accion
+    return self.client.post(reverse('admin:tienda_sugerencia_changelist'), {
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'action': accion,
+        ^^^^^^^^^^^^^^^^^
+        '_selected_action': [s.pk for s in sugerencias],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }, follow=True)
+    ^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1157, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1091, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 776, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\views\decorators\cache.py", line 79, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\sites.py", line 248, in inner
+    return view(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 47, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 2398, in changelist_view
+    response = self.response_action(
+        request,
+        queryset=cl.get_queryset(request),
+        action_location=ActionLocation.CHANGE_LIST,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 1909, in response_action
+    response = func(self, request, queryset)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\bandeja.py", line 80, in aprobar_y_aplicar
+    raise NotImplementedError('TODO(alumno) Parte 2c: acción aprobar_y_aplicar')
+NotImplementedError: TODO(alumno) Parte 2c: acción aprobar_y_aplicar
+
+
+======================================================================
+ERROR: test_aprobar_dos_veces_no_vuelve_a_aplicar (tienda.tests.test_p2_bandeja.AprobarTests.test_aprobar_dos_veces_no_vuelve_a_aplicar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 91, in test_aprobar_dos_veces_no_vuelve_a_aplicar
+    self.accion(self.admin, 'aprobar_y_aplicar', [fanta])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 64, in accion
+    return self.client.post(reverse('admin:tienda_sugerencia_changelist'), {
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'action': accion,
+        ^^^^^^^^^^^^^^^^^
+        '_selected_action': [s.pk for s in sugerencias],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }, follow=True)
+    ^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1157, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1091, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 776, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\views\decorators\cache.py", line 79, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\sites.py", line 248, in inner
+    return view(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 47, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 2398, in changelist_view
+    response = self.response_action(
+        request,
+        queryset=cl.get_queryset(request),
+        action_location=ActionLocation.CHANGE_LIST,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 1909, in response_action
+    response = func(self, request, queryset)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\bandeja.py", line 80, in aprobar_y_aplicar
+    raise NotImplementedError('TODO(alumno) Parte 2c: acción aprobar_y_aplicar')
+NotImplementedError: TODO(alumno) Parte 2c: acción aprobar_y_aplicar
+
+
+======================================================================
+ERROR: test_deja_rastro_de_quien_decidio (tienda.tests.test_p2_bandeja.AprobarTests.test_deja_rastro_de_quien_decidio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 82, in test_deja_rastro_de_quien_decidio
+    self.accion(self.admin, 'aprobar_y_aplicar', [fanta])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 64, in accion
+    return self.client.post(reverse('admin:tienda_sugerencia_changelist'), {
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'action': accion,
+        ^^^^^^^^^^^^^^^^^
+        '_selected_action': [s.pk for s in sugerencias],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }, follow=True)
+    ^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1157, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1091, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 776, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\views\decorators\cache.py", line 79, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\sites.py", line 248, in inner
+    return view(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 47, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 2398, in changelist_view
+    response = self.response_action(
+        request,
+        queryset=cl.get_queryset(request),
+        action_location=ActionLocation.CHANGE_LIST,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 1909, in response_action
+    response = func(self, request, queryset)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\bandeja.py", line 80, in aprobar_y_aplicar
+    raise NotImplementedError('TODO(alumno) Parte 2c: acción aprobar_y_aplicar')
+NotImplementedError: TODO(alumno) Parte 2c: acción aprobar_y_aplicar
+
+
+======================================================================
+ERROR: test_el_revisor_si_aprueba (tienda.tests.test_p3_frontera.FronteraTests.test_el_revisor_si_aprueba)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 70, in test_el_revisor_si_aprueba
+    self.accion(self.revisor, 'aprobar_y_aplicar', [self.sug('Coca-Cola', 'precio')])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\base.py", line 64, in accion
+    return self.client.post(reverse('admin:tienda_sugerencia_changelist'), {
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'action': accion,
+        ^^^^^^^^^^^^^^^^^
+        '_selected_action': [s.pk for s in sugerencias],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }, follow=True)
+    ^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1157, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 1091, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 776, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\views\decorators\cache.py", line 79, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\sites.py", line 248, in inner
+    return view(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 47, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 191, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\utils\decorators.py", line 189, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 2398, in changelist_view
+    response = self.response_action(
+        request,
+        queryset=cl.get_queryset(request),
+        action_location=ActionLocation.CHANGE_LIST,
+    )
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\contrib\admin\options.py", line 1909, in response_action
+    response = func(self, request, queryset)
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\alumno\bandeja.py", line 80, in aprobar_y_aplicar
+    raise NotImplementedError('TODO(alumno) Parte 2c: acción aprobar_y_aplicar')
+NotImplementedError: TODO(alumno) Parte 2c: acción aprobar_y_aplicar
+
+
+======================================================================
+ERROR: test_lo_que_propone_el_agente_queda_a_su_nombre (tienda.tests.test_p3_frontera.FronteraTests.test_lo_que_propone_el_agente_queda_a_su_nombre)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 55, in test_lo_que_propone_el_agente_queda_a_su_nombre
+    s = Sugerencia.objects.get(motivo='Reponer')
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\db\models\query.py", line 722, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tienda.models.Sugerencia.DoesNotExist: Sugerencia matching query does not exist.
+
+
+======================================================================
+ERROR: test_lo_que_propone_una_persona_queda_como_persona (tienda.tests.test_p3_frontera.FronteraTests.test_lo_que_propone_una_persona_queda_como_persona)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 64, in test_lo_que_propone_una_persona_queda_como_persona
+    s = Sugerencia.objects.get(motivo='Inventario')
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\myvenv\Lib\site-packages\django\db\models\query.py", line 722, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tienda.models.Sugerencia.DoesNotExist: Sugerencia matching query does not exist.
+
+
+======================================================================
+FAIL: test_columnas_filtros_y_busqueda (tienda.tests.test_p2_bandeja.BandejaTests.test_columnas_filtros_y_busqueda)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 24, in test_columnas_filtros_y_busqueda
+    self.assertContains(r, columna)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: False is not true : Couldn't find 'column-valor_actual_col' in the following response
+b'<!DOCTYPE html>\n\n<html lang="es-pe" dir="ltr">\n<head>\n<title>Seleccione sugerencia a modificar | Bandeja del revisor</title>\n<meta name="color-scheme" content="light dark" />\n<link rel="stylesheet" href="/static/admin/css/base.css" >\n\n  <link rel="stylesheet" href="/static/admin/css/dark_mode.css" >\n  <script src="/static/admin/js/theme.js" ></script>\n\n\n  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css" >\n  <script src="/static/admin/js/nav_sidebar.js" defer ></script>\n\n\n  \n  <link rel="stylesheet" href="/static/admin/css/changelists.css" >\n  \n  \n    <script src="/admin/jsi18n/" ></script>\n  \n  \n  \n\n\n\n\n<script src="/static/admin/js/vendor/jquery/jquery.min.js"></script>\n<script src="/static/admin/js/jquery.init.js"></script>\n<script src="/static/admin/js/core.js"></script>\n<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>\n<script src="/static/admin/js/actions.js"></script>\n<script src="/static/admin/js/urlify.js"></script>\n<script src="/static/admin/js/prepopulate.js"></script>\n<script src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>\n<script src="/static/admin/js/filters.js" defer ></script>\n\n\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/admin/css/responsive.css" >\n    \n\n<meta name="robots" content="NONE,NOARCHIVE">\n</head>\n\n<body class=" app-tienda model-sugerencia change-list"\n  data-admin-utc-offset="-18000"\n  data-admin-server-timezone="America/Lima">\n<a href="#content-start" class="skip-to-content-link">Saltar al contenido principal</a>\n<!-- Container -->\n<div id="container">\n\n    \n    <!-- Header -->\n    \n      <header id="header">\n        <div id="branding">\n        \n<div id="site-name"><a href="/admin/">Tienda \xc2\xb7 Bandeja del revisor</a></div>\n\n\n        </div>\n        \n        \n        <div id="user-tools">\n            \n                Bienvenidos,\n                <strong>admin</strong>.\n            \n            \n                \n                    <a href="/">Ver el sitio</a> /\n                \n                \n                    \n                    \n                \n                \n                <a href="/admin/password_change/">Cambiar contrase\xc3\xb1a</a> /\n                \n                <form id="logout-form" method="post" action="/admin/logout/">\n                    <input type="hidden" name="csrfmiddlewaretoken" value="6VN8SUZYIGYTaBSZxlHQULXD2ulAQENG8IUYbNNT8CvSXn71LG9Lu0ixberldtbf">\n                    <button type="submit">Cerrar sesi\xc3\xb3n</button>\n                </form>\n                \n<button class="theme-toggle">\n  <span class="visually-hidden theme-label-when-auto">Cambiar tema (tema actual: autom\xc3\xa1tico)</span>\n  <span class="visually-hidden theme-label-when-light">Cambiar tema (tema actual: claro)</span>\n  <span class="visually-hidden theme-label-when-dark">Cambiar tema (tema actual: oscuro)</span>\n  <svg aria-hidden="true" class="theme-icon-when-auto">\n    <use xlink:href="#icon-auto" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-dark">\n    <use xlink:href="#icon-moon" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-light">\n    <use xlink:href="#icon-sun" />\n  </svg>\n</button>\n\n            \n        </div>\n        \n        \n        \n      </header>\n    \n    <!-- END Header -->\n    \n      <nav aria-label="Gu\xc3\xada-rastro">\n        \n<ol class="breadcrumbs">\n<li><a href="/admin/">Inicio</a></li>\n<li><a href="/admin/tienda/">Tienda</a></li>\n<li aria-current="page">Sugerencias</li>\n</ol>\n\n      </nav>\n    \n    \n\n    <div class="main" id="main">\n      \n        \n          \n<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Activar navegaci\xc3\xb3n"></button>\n<nav class="sticky" id="nav-sidebar" aria-label="Barra lateral">\n  <input type="search" id="nav-filter"\n         placeholder="Empiece a escribir para filtrar\xe2\x80\xa6"\n         aria-label="Filtrar elementos de navegaci\xc3\xb3n">\n  \n\n\n  \n    <div class="app-auth module">\n      <table>\n        <caption>\n          <a href="/admin/auth/" class="section">Autenticaci\xc3\xb3n y autorizaci\xc3\xb3n</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-group">\n              <th scope="row" id="auth-group">\n                \n                  <a href="/admin/auth/group/">Grupos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/group/add/" class="addlink" aria-describedby="auth-group">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-user">\n              <th scope="row" id="auth-user">\n                \n                  <a href="/admin/auth/user/">Usuarios</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/user/add/" class="addlink" aria-describedby="auth-user">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n    <div class="app-tienda module current-app">\n      <table>\n        <caption>\n          <a href="/admin/tienda/" class="section">Tienda</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-categoria">\n              <th scope="row" id="tienda-categoria">\n                \n                  <a href="/admin/tienda/categoria/">Categor\xc3\xadas</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/categoria/add/" class="addlink" aria-describedby="tienda-categoria">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-producto">\n              <th scope="row" id="tienda-producto">\n                \n                  <a href="/admin/tienda/producto/">Productos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/producto/add/" class="addlink" aria-describedby="tienda-producto">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-sugerencia current-model">\n              <th scope="row" id="tienda-sugerencia">\n                \n                  <a href="/admin/tienda/sugerencia/" aria-current="page">Sugerencias</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/sugerencia/add/" class="addlink" aria-describedby="tienda-sugerencia">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n\n\n</nav>\n\n        \n      \n      <main id="content-start" class="content" tabindex="-1">\n        \n          \n        \n        <!-- Content -->\n        <div id="content" class="">\n          <div class="titles-and-tools">\n            <div class="titles">\n              \n              <h1>Seleccione sugerencia a modificar</h1>\n              \n            </div>\n            \n<ul class="object-tools">\n  \n    \n\n\n  \n  <li>\n    \n    <a href="/admin/tienda/sugerencia/add/" class="addlink">\n      A\xc3\xb1adir sugerencia\n    </a>\n  </li>\n  \n\n\n  \n</ul>\n\n          </div>\n          \n  <div id="content-main">\n    \n    <div class="module" id="changelist">\n      <div class="changelist-form-container">\n        \n          \n        \n        <div>\n          \n\n\n          \n\n          <form id="changelist-form" method="post" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="6VN8SUZYIGYTaBSZxlHQULXD2ulAQENG8IUYbNNT8CvSXn71LG9Lu0ixberldtbf">\n          \n\n          \n            \n<div class="actions">\n  \n    \n    <label>Acci\xc3\xb3n: <select name="action" required>\n  <option value="" selected>- Select an option -</option>\n\n  <option value="aprobar_y_aplicar">Aprobar y aplicar (solo las que pasan el verificador)</option>\n\n  <option value="rechazar">Rechazar</option>\n\n</select></label><input type="hidden" name="select_across" value="0" class="select-across">\n    \n    \n    <button type="submit" class="button" name="index" value="0">Run</button>\n    \n    \n    \n        <span class="action-counter" data-actions-icnt="7" aria-live="polite" aria-atomic="true">seleccionados 0 de 7</span>\n        \n    \n    \n  \n</div>\n\n            \n\n\n<div class="results">\n<table id="result_list">\n<thead>\n<tr>\n\n<th scope="col" class="action-checkbox-column">\n   \n   <div class="text"><span><input type="checkbox" id="action-toggle" aria-label="Seleccione todos los objetos de esta p\xc3\xa1gina para una acci\xc3\xb3n"></span></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-__str__">\n   \n   <div class="text"><a role="button" href="?o=1">Sugerencia</a></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-estado">\n   \n   <div class="text"><a role="button" href="?o=2">Estado</a></div>\n   <div class="clear"></div>\n</th>\n</tr>\n</thead>\n<tbody>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="7" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/7/change/">Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="6" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/6/change/">Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="5" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/5/change/">Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="4" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Oreo \xc2\xb7 stock \xe2\x86\x92 -10"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/4/change/">Oreo \xc2\xb7 stock \xe2\x86\x92 -10</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="3" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/3/change/">Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="2" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/2/change/">Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Fanta \xc2\xb7 stock \xe2\x86\x92 48"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/1/change/">Fanta \xc2\xb7 stock \xe2\x86\x92 48</a></th><td class="field-estado">pendiente</td></tr>\n\n</tbody>\n</table>\n</div>\n\n\n            \n          \n          \n            <div class="changelist-footer">\n            \n\n<nav class="paginator" aria-labelledby="pagination">\n    <h2 id="pagination" class="visually-hidden">Pagination sugerencias</h2>\n    \n7 sugerencias\n\n</nav>\n\n            \n            </div>\n          \n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n\n          \n          <br class="clear">\n        </div>\n        <!-- END Content -->\n      </main>\n    </div>\n    <footer id="footer"></footer>\n</div>\n<!-- END Container -->\n\n<!-- SVGs -->\n<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">\n  <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>\n</svg>\n<!-- END SVGs -->\n\n</body>\n</html>\n'
+
+
+======================================================================
+FAIL: test_el_html_del_motivo_se_muestra_como_texto (tienda.tests.test_p2_bandeja.BandejaTests.test_el_html_del_motivo_se_muestra_como_texto)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 39, in test_el_html_del_motivo_se_muestra_como_texto
+    self.assertContains(r, '&lt;img src=x onerror=')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Couldn't find '&lt;img src=x onerror=' in the following response
+b'<!DOCTYPE html>\n\n<html lang="es-pe" dir="ltr">\n<head>\n<title>Seleccione sugerencia a modificar | Bandeja del revisor</title>\n<meta name="color-scheme" content="light dark" />\n<link rel="stylesheet" href="/static/admin/css/base.css" >\n\n  <link rel="stylesheet" href="/static/admin/css/dark_mode.css" >\n  <script src="/static/admin/js/theme.js" ></script>\n\n\n  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css" >\n  <script src="/static/admin/js/nav_sidebar.js" defer ></script>\n\n\n  \n  <link rel="stylesheet" href="/static/admin/css/changelists.css" >\n  \n  \n    <script src="/admin/jsi18n/" ></script>\n  \n  \n  \n\n\n\n\n<script src="/static/admin/js/vendor/jquery/jquery.min.js"></script>\n<script src="/static/admin/js/jquery.init.js"></script>\n<script src="/static/admin/js/core.js"></script>\n<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>\n<script src="/static/admin/js/actions.js"></script>\n<script src="/static/admin/js/urlify.js"></script>\n<script src="/static/admin/js/prepopulate.js"></script>\n<script src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>\n<script src="/static/admin/js/filters.js" defer ></script>\n\n\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/admin/css/responsive.css" >\n    \n\n<meta name="robots" content="NONE,NOARCHIVE">\n</head>\n\n<body class=" app-tienda model-sugerencia change-list"\n  data-admin-utc-offset="-18000"\n  data-admin-server-timezone="America/Lima">\n<a href="#content-start" class="skip-to-content-link">Saltar al contenido principal</a>\n<!-- Container -->\n<div id="container">\n\n    \n    <!-- Header -->\n    \n      <header id="header">\n        <div id="branding">\n        \n<div id="site-name"><a href="/admin/">Tienda \xc2\xb7 Bandeja del revisor</a></div>\n\n\n        </div>\n        \n        \n        <div id="user-tools">\n            \n                Bienvenidos,\n                <strong>admin</strong>.\n            \n            \n                \n                    <a href="/">Ver el sitio</a> /\n                \n                \n                    \n                    \n                \n                \n                <a href="/admin/password_change/">Cambiar contrase\xc3\xb1a</a> /\n                \n                <form id="logout-form" method="post" action="/admin/logout/">\n                    <input type="hidden" name="csrfmiddlewaretoken" value="9YIqNuZB5P1lUUqSjTGxqlWc5ZvadyfcL60h4drSQ1dJ4YE8sb4968ROLeQcg7Rl">\n                    <button type="submit">Cerrar sesi\xc3\xb3n</button>\n                </form>\n                \n<button class="theme-toggle">\n  <span class="visually-hidden theme-label-when-auto">Cambiar tema (tema actual: autom\xc3\xa1tico)</span>\n  <span class="visually-hidden theme-label-when-light">Cambiar tema (tema actual: claro)</span>\n  <span class="visually-hidden theme-label-when-dark">Cambiar tema (tema actual: oscuro)</span>\n  <svg aria-hidden="true" class="theme-icon-when-auto">\n    <use xlink:href="#icon-auto" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-dark">\n    <use xlink:href="#icon-moon" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-light">\n    <use xlink:href="#icon-sun" />\n  </svg>\n</button>\n\n            \n        </div>\n        \n        \n        \n      </header>\n    \n    <!-- END Header -->\n    \n      <nav aria-label="Gu\xc3\xada-rastro">\n        \n<ol class="breadcrumbs">\n<li><a href="/admin/">Inicio</a></li>\n<li><a href="/admin/tienda/">Tienda</a></li>\n<li aria-current="page">Sugerencias</li>\n</ol>\n\n      </nav>\n    \n    \n\n    <div class="main" id="main">\n      \n        \n          \n<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Activar navegaci\xc3\xb3n"></button>\n<nav class="sticky" id="nav-sidebar" aria-label="Barra lateral">\n  <input type="search" id="nav-filter"\n         placeholder="Empiece a escribir para filtrar\xe2\x80\xa6"\n         aria-label="Filtrar elementos de navegaci\xc3\xb3n">\n  \n\n\n  \n    <div class="app-auth module">\n      <table>\n        <caption>\n          <a href="/admin/auth/" class="section">Autenticaci\xc3\xb3n y autorizaci\xc3\xb3n</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-group">\n              <th scope="row" id="auth-group">\n                \n                  <a href="/admin/auth/group/">Grupos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/group/add/" class="addlink" aria-describedby="auth-group">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-user">\n              <th scope="row" id="auth-user">\n                \n                  <a href="/admin/auth/user/">Usuarios</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/user/add/" class="addlink" aria-describedby="auth-user">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n    <div class="app-tienda module current-app">\n      <table>\n        <caption>\n          <a href="/admin/tienda/" class="section">Tienda</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-categoria">\n              <th scope="row" id="tienda-categoria">\n                \n                  <a href="/admin/tienda/categoria/">Categor\xc3\xadas</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/categoria/add/" class="addlink" aria-describedby="tienda-categoria">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-producto">\n              <th scope="row" id="tienda-producto">\n                \n                  <a href="/admin/tienda/producto/">Productos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/producto/add/" class="addlink" aria-describedby="tienda-producto">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-sugerencia current-model">\n              <th scope="row" id="tienda-sugerencia">\n                \n                  <a href="/admin/tienda/sugerencia/" aria-current="page">Sugerencias</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/sugerencia/add/" class="addlink" aria-describedby="tienda-sugerencia">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n\n\n</nav>\n\n        \n      \n      <main id="content-start" class="content" tabindex="-1">\n        \n          \n        \n        <!-- Content -->\n        <div id="content" class="">\n          <div class="titles-and-tools">\n            <div class="titles">\n              \n              <h1>Seleccione sugerencia a modificar</h1>\n              \n            </div>\n            \n<ul class="object-tools">\n  \n    \n\n\n  \n  <li>\n    \n    <a href="/admin/tienda/sugerencia/add/" class="addlink">\n      A\xc3\xb1adir sugerencia\n    </a>\n  </li>\n  \n\n\n  \n</ul>\n\n          </div>\n          \n  <div id="content-main">\n    \n    <div class="module" id="changelist">\n      <div class="changelist-form-container">\n        \n          \n        \n        <div>\n          \n\n\n          \n\n          <form id="changelist-form" method="post" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="9YIqNuZB5P1lUUqSjTGxqlWc5ZvadyfcL60h4drSQ1dJ4YE8sb4968ROLeQcg7Rl">\n          \n\n          \n            \n<div class="actions">\n  \n    \n    <label>Acci\xc3\xb3n: <select name="action" required>\n  <option value="" selected>- Select an option -</option>\n\n  <option value="aprobar_y_aplicar">Aprobar y aplicar (solo las que pasan el verificador)</option>\n\n  <option value="rechazar">Rechazar</option>\n\n</select></label><input type="hidden" name="select_across" value="0" class="select-across">\n    \n    \n    <button type="submit" class="button" name="index" value="0">Run</button>\n    \n    \n    \n        <span class="action-counter" data-actions-icnt="7" aria-live="polite" aria-atomic="true">seleccionados 0 de 7</span>\n        \n    \n    \n  \n</div>\n\n            \n\n\n<div class="results">\n<table id="result_list">\n<thead>\n<tr>\n\n<th scope="col" class="action-checkbox-column">\n   \n   <div class="text"><span><input type="checkbox" id="action-toggle" aria-label="Seleccione todos los objetos de esta p\xc3\xa1gina para una acci\xc3\xb3n"></span></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-__str__">\n   \n   <div class="text"><a role="button" href="?o=1">Sugerencia</a></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-estado">\n   \n   <div class="text"><a role="button" href="?o=2">Estado</a></div>\n   <div class="clear"></div>\n</th>\n</tr>\n</thead>\n<tbody>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="7" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/7/change/">Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="6" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/6/change/">Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="5" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/5/change/">Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="4" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Oreo \xc2\xb7 stock \xe2\x86\x92 -10"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/4/change/">Oreo \xc2\xb7 stock \xe2\x86\x92 -10</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="3" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/3/change/">Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="2" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/2/change/">Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Fanta \xc2\xb7 stock \xe2\x86\x92 48"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/1/change/">Fanta \xc2\xb7 stock \xe2\x86\x92 48</a></th><td class="field-estado">pendiente</td></tr>\n\n</tbody>\n</table>\n</div>\n\n\n            \n          \n          \n            <div class="changelist-footer">\n            \n\n<nav class="paginator" aria-labelledby="pagination">\n    <h2 id="pagination" class="visually-hidden">Pagination sugerencias</h2>\n    \n7 sugerencias\n\n</nav>\n\n            \n            </div>\n          \n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n\n          \n          <br class="clear">\n        </div>\n        <!-- END Content -->\n      </main>\n    </div>\n    <footer id="footer"></footer>\n</div>\n<!-- END Container -->\n\n<!-- SVGs -->\n<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">\n  <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>\n</svg>\n<!-- END SVGs -->\n\n</body>\n</html>\n'
+
+
+======================================================================
+FAIL: test_la_propuesta_no_se_retoca (tienda.tests.test_p2_bandeja.BandejaTests.test_la_propuesta_no_se_retoca)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 59, in test_la_propuesta_no_se_retoca
+    self.assertEqual((oreo.valor_propuesto, oreo.estado), (Decimal('-10'), 'pendiente'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (Decimal('10.00'), 'aprobada') != (Decimal('-10'), 'pendiente')
+
+First differing element 0:
+Decimal('10.00')
+Decimal('-10')
+
+- (Decimal('10.00'), 'aprobada')
++ (Decimal('-10'), 'pendiente')
+
+
+======================================================================
+FAIL: test_nadie_nace_aprobada (tienda.tests.test_p2_bandeja.BandejaTests.test_nadie_nace_aprobada)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 48, in test_nadie_nace_aprobada
+    self.assertEqual((s.estado, s.decidido_por), ('pendiente', None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('aprobada', None) != ('pendiente', None)
+
+First differing element 0:
+'aprobada'
+'pendiente'
+
+- ('aprobada', None)
++ ('pendiente', None)
+
+
+======================================================================
+FAIL: test_veredicto_del_verificador_en_la_lista (tienda.tests.test_p2_bandeja.BandejaTests.test_veredicto_del_verificador_en_la_lista)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p2_bandeja.py", line 33, in test_veredicto_del_verificador_en_la_lista
+    self.assertContains(r, '\u2714 pasa')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: False is not true : Couldn't find '\u2714 pasa' in the following response
+b'<!DOCTYPE html>\n\n<html lang="es-pe" dir="ltr">\n<head>\n<title>Seleccione sugerencia a modificar | Bandeja del revisor</title>\n<meta name="color-scheme" content="light dark" />\n<link rel="stylesheet" href="/static/admin/css/base.css" >\n\n  <link rel="stylesheet" href="/static/admin/css/dark_mode.css" >\n  <script src="/static/admin/js/theme.js" ></script>\n\n\n  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css" >\n  <script src="/static/admin/js/nav_sidebar.js" defer ></script>\n\n\n  \n  <link rel="stylesheet" href="/static/admin/css/changelists.css" >\n  \n  \n    <script src="/admin/jsi18n/" ></script>\n  \n  \n  \n\n\n\n\n<script src="/static/admin/js/vendor/jquery/jquery.min.js"></script>\n<script src="/static/admin/js/jquery.init.js"></script>\n<script src="/static/admin/js/core.js"></script>\n<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>\n<script src="/static/admin/js/actions.js"></script>\n<script src="/static/admin/js/urlify.js"></script>\n<script src="/static/admin/js/prepopulate.js"></script>\n<script src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>\n<script src="/static/admin/js/filters.js" defer ></script>\n\n\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/admin/css/responsive.css" >\n    \n\n<meta name="robots" content="NONE,NOARCHIVE">\n</head>\n\n<body class=" app-tienda model-sugerencia change-list"\n  data-admin-utc-offset="-18000"\n  data-admin-server-timezone="America/Lima">\n<a href="#content-start" class="skip-to-content-link">Saltar al contenido principal</a>\n<!-- Container -->\n<div id="container">\n\n    \n    <!-- Header -->\n    \n      <header id="header">\n        <div id="branding">\n        \n<div id="site-name"><a href="/admin/">Tienda \xc2\xb7 Bandeja del revisor</a></div>\n\n\n        </div>\n        \n        \n        <div id="user-tools">\n            \n                Bienvenidos,\n                <strong>admin</strong>.\n            \n            \n                \n                    <a href="/">Ver el sitio</a> /\n                \n                \n                    \n                    \n                \n                \n                <a href="/admin/password_change/">Cambiar contrase\xc3\xb1a</a> /\n                \n                <form id="logout-form" method="post" action="/admin/logout/">\n                    <input type="hidden" name="csrfmiddlewaretoken" value="ZAAbSv0W9LeuGglzw8UnV6aB73wJi9sgNMNN7KtPqICuqPXO0p9mErItkr9NxDs3">\n                    <button type="submit">Cerrar sesi\xc3\xb3n</button>\n                </form>\n                \n<button class="theme-toggle">\n  <span class="visually-hidden theme-label-when-auto">Cambiar tema (tema actual: autom\xc3\xa1tico)</span>\n  <span class="visually-hidden theme-label-when-light">Cambiar tema (tema actual: claro)</span>\n  <span class="visually-hidden theme-label-when-dark">Cambiar tema (tema actual: oscuro)</span>\n  <svg aria-hidden="true" class="theme-icon-when-auto">\n    <use xlink:href="#icon-auto" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-dark">\n    <use xlink:href="#icon-moon" />\n  </svg>\n  <svg aria-hidden="true" class="theme-icon-when-light">\n    <use xlink:href="#icon-sun" />\n  </svg>\n</button>\n\n            \n        </div>\n        \n        \n        \n      </header>\n    \n    <!-- END Header -->\n    \n      <nav aria-label="Gu\xc3\xada-rastro">\n        \n<ol class="breadcrumbs">\n<li><a href="/admin/">Inicio</a></li>\n<li><a href="/admin/tienda/">Tienda</a></li>\n<li aria-current="page">Sugerencias</li>\n</ol>\n\n      </nav>\n    \n    \n\n    <div class="main" id="main">\n      \n        \n          \n<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Activar navegaci\xc3\xb3n"></button>\n<nav class="sticky" id="nav-sidebar" aria-label="Barra lateral">\n  <input type="search" id="nav-filter"\n         placeholder="Empiece a escribir para filtrar\xe2\x80\xa6"\n         aria-label="Filtrar elementos de navegaci\xc3\xb3n">\n  \n\n\n  \n    <div class="app-auth module">\n      <table>\n        <caption>\n          <a href="/admin/auth/" class="section">Autenticaci\xc3\xb3n y autorizaci\xc3\xb3n</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-group">\n              <th scope="row" id="auth-group">\n                \n                  <a href="/admin/auth/group/">Grupos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/group/add/" class="addlink" aria-describedby="auth-group">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-user">\n              <th scope="row" id="auth-user">\n                \n                  <a href="/admin/auth/user/">Usuarios</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/auth/user/add/" class="addlink" aria-describedby="auth-user">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n    <div class="app-tienda module current-app">\n      <table>\n        <caption>\n          <a href="/admin/tienda/" class="section">Tienda</a>\n        </caption>\n        <thead class="visually-hidden">\n          <tr>\n            <th scope="col">Nombre del modelo</th>\n            <th scope="col">A\xc3\xb1adir v\xc3\xadnculo</th>\n            <th scope="col">Cambiar o ver el enlace de la lista</th>\n          </tr>\n        </thead>\n        \n          \n            <tr class="model-categoria">\n              <th scope="row" id="tienda-categoria">\n                \n                  <a href="/admin/tienda/categoria/">Categor\xc3\xadas</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/categoria/add/" class="addlink" aria-describedby="tienda-categoria">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-producto">\n              <th scope="row" id="tienda-producto">\n                \n                  <a href="/admin/tienda/producto/">Productos</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/producto/add/" class="addlink" aria-describedby="tienda-producto">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n          \n            <tr class="model-sugerencia current-model">\n              <th scope="row" id="tienda-sugerencia">\n                \n                  <a href="/admin/tienda/sugerencia/" aria-current="page">Sugerencias</a>\n                \n              </th>\n\n              \n                <td><a href="/admin/tienda/sugerencia/add/" class="addlink" aria-describedby="tienda-sugerencia">A\xc3\xb1adir</a></td>\n              \n\n              \n            </tr>\n          \n        \n      </table>\n    </div>\n  \n\n\n</nav>\n\n        \n      \n      <main id="content-start" class="content" tabindex="-1">\n        \n          \n        \n        <!-- Content -->\n        <div id="content" class="">\n          <div class="titles-and-tools">\n            <div class="titles">\n              \n              <h1>Seleccione sugerencia a modificar</h1>\n              \n            </div>\n            \n<ul class="object-tools">\n  \n    \n\n\n  \n  <li>\n    \n    <a href="/admin/tienda/sugerencia/add/" class="addlink">\n      A\xc3\xb1adir sugerencia\n    </a>\n  </li>\n  \n\n\n  \n</ul>\n\n          </div>\n          \n  <div id="content-main">\n    \n    <div class="module" id="changelist">\n      <div class="changelist-form-container">\n        \n          \n        \n        <div>\n          \n\n\n          \n\n          <form id="changelist-form" method="post" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="ZAAbSv0W9LeuGglzw8UnV6aB73wJi9sgNMNN7KtPqICuqPXO0p9mErItkr9NxDs3">\n          \n\n          \n            \n<div class="actions">\n  \n    \n    <label>Acci\xc3\xb3n: <select name="action" required>\n  <option value="" selected>- Select an option -</option>\n\n  <option value="aprobar_y_aplicar">Aprobar y aplicar (solo las que pasan el verificador)</option>\n\n  <option value="rechazar">Rechazar</option>\n\n</select></label><input type="hidden" name="select_across" value="0" class="select-across">\n    \n    \n    <button type="submit" class="button" name="index" value="0">Run</button>\n    \n    \n    \n        <span class="action-counter" data-actions-icnt="7" aria-live="polite" aria-atomic="true">seleccionados 0 de 7</span>\n        \n    \n    \n  \n</div>\n\n            \n\n\n<div class="results">\n<table id="result_list">\n<thead>\n<tr>\n\n<th scope="col" class="action-checkbox-column">\n   \n   <div class="text"><span><input type="checkbox" id="action-toggle" aria-label="Seleccione todos los objetos de esta p\xc3\xa1gina para una acci\xc3\xb3n"></span></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-__str__">\n   \n   <div class="text"><a role="button" href="?o=1">Sugerencia</a></div>\n   <div class="clear"></div>\n</th>\n<th scope="col" class="sortable column-estado">\n   \n   <div class="text"><a role="button" href="?o=2">Estado</a></div>\n   <div class="clear"></div>\n</th>\n</tr>\n</thead>\n<tbody>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="7" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/7/change/">Coca-Cola \xc2\xb7 stock \xe2\x86\x92 36</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="6" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/6/change/">Soda Field \xc2\xb7 precio \xe2\x86\x92 0.01</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="5" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/5/change/">Papas Lays \xc2\xb7 precio \xe2\x86\x92 0.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="4" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Oreo \xc2\xb7 stock \xe2\x86\x92 -10"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/4/change/">Oreo \xc2\xb7 stock \xe2\x86\x92 -10</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="3" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/3/change/">Inca Kola \xc2\xb7 precio \xe2\x86\x92 250.00</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="2" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/2/change/">Coca-Cola \xc2\xb7 precio \xe2\x86\x92 2.70</a></th><td class="field-estado">pendiente</td></tr>\n\n\n<tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1" class="action-select" aria-label="Seleccione este objeto para una acci\xc3\xb3n - Fanta \xc2\xb7 stock \xe2\x86\x92 48"></td><th class="field-__str__"><a href="/admin/tienda/sugerencia/1/change/">Fanta \xc2\xb7 stock \xe2\x86\x92 48</a></th><td class="field-estado">pendiente</td></tr>\n\n</tbody>\n</table>\n</div>\n\n\n            \n          \n          \n            <div class="changelist-footer">\n            \n\n<nav class="paginator" aria-labelledby="pagination">\n    <h2 id="pagination" class="visually-hidden">Pagination sugerencias</h2>\n    \n7 sugerencias\n\n</nav>\n\n            \n            </div>\n          \n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n\n          \n          <br class="clear">\n        </div>\n        <!-- END Content -->\n      </main>\n    </div>\n    <footer id="footer"></footer>\n</div>\n<!-- END Container -->\n\n<!-- SVGs -->\n<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">\n  <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>\n  <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>\n</svg>\n<!-- END SVGs -->\n\n</body>\n</html>\n'
+
+
+======================================================================
+FAIL: test_el_agente_entra_a_la_bandeja (tienda.tests.test_p3_frontera.FronteraTests.test_el_agente_entra_a_la_bandeja)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 28, in test_el_agente_entra_a_la_bandeja
+    self.assertEqual(r.status_code, 200)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 403 != 200
+
+
+======================================================================
+FAIL: test_el_agente_no_cambia_productos (tienda.tests.test_p3_frontera.FronteraTests.test_el_agente_no_cambia_productos)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 43, in test_el_agente_no_cambia_productos
+    self.assertEqual(self.client.get(url).status_code, 200)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 403 != 200
+
+
+======================================================================
+FAIL: test_el_agente_no_puede_aprobar (tienda.tests.test_p3_frontera.FronteraTests.test_el_agente_no_puede_aprobar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 33, in test_el_agente_no_puede_aprobar
+    self.assertNotContains(self.client.get(LISTA), 'value="aprobar_y_aplicar"',
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           msg_prefix='el agente ve la acción «Aprobar y aplicar»')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 403 != 200 : el agente ve la acción «Aprobar y aplicar»: Couldn't retrieve content: Response code was 403 (expected 200)
+
+
+======================================================================
+FAIL: test_permisos_minimos_del_agente (tienda.tests.test_p3_frontera.FronteraTests.test_permisos_minimos_del_agente)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ProyectosDjango\L5-Extra-BandejaRevisor\tienda\tests\test_p3_frontera.py", line 19, in test_permisos_minimos_del_agente
+    self.assertIn(necesario, permisos)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'tienda.add_sugerencia' not found in set()
+

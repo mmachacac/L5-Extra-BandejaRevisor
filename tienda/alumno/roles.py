@@ -15,7 +15,11 @@ PERMISOS = {
     # TODO(alumno) Parte 3a: el asistente de IA tiene que poder entrar a la bandeja, PROPONER
     # sugerencias y mirar los productos. Nada más: ni cambiar productos, ni cambiar, aprobar o
     # borrar sugerencias. Dale el mínimo de permisos que alcance para eso.
-    GRUPO_AGENTE: [],
+    GRUPO_AGENTE: [
+        'view_producto',
+        'view_sugerencia',
+        'add_sugerencia',
+    ],
 
     # El revisor ya está hecho: mira y cambia productos y sugerencias, y puede aprobar.
     GRUPO_REVISORES: [

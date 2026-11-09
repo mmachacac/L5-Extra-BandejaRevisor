@@ -31,7 +31,29 @@ def verificar(sugerencia):
     El motivo lo escribió el modelo de IA: es un dato para que lo lea una persona, no una
     instrucción para tu programa.
     """
-    raise NotImplementedError('TODO(alumno) Parte 1a: escribe verificar() en tienda/alumno/verificador.py')
+    problemas = []
+    campo = sugerencia.campo
+    valor = sugerencia.valor_propuesto
+
+    if campo == 'precio':
+        precio_actual = sugerencia.producto.precio
+        if valor <= 0:
+            problemas.append('el precio tiene que ser mayor que 0')
+        if abs(valor - precio_actual) > precio_actual * VARIACION_MAXIMA_PRECIO:
+            problemas.append('El precio supera la variación permitida del ±30 %')
+
+    elif campo == 'stock':
+        if valor != valor.to_integral_value():
+            problemas.append('El stock debe ser un número entero')
+        if valor < 0:
+            problemas.append('el stock no puede ser negativo')
+        if valor > STOCK_MAXIMO:
+            problemas.append('El stock no puede pasar de 999')
+
+    else:
+        problemas.append('campo desconocido')
+
+    return problemas
 
 
 def validar_forma(item):
@@ -46,4 +68,22 @@ def validar_forma(item):
 
     Pista: Decimal('veinte') lanza InvalidOperation.
     """
-    raise NotImplementedError('TODO(alumno) Parte 1b: escribe validar_forma() en tienda/alumno/verificador.py')
+    if not isinstance(item, dict) or not CLAVES.issubset(item.keys()):
+        raise ValueError('A la sugerencia le faltan claves obligatorias')
+
+    nombre_producto = str(item['producto'])
+
+    try:
+        producto = Producto.objects.get(nombre__iexact=nombre_producto)
+    except Producto.DoesNotExist:
+        raise ValueError(f'El producto {nombre_producto} no existe en el catálogo')
+
+    if item['campo'] not in ('precio', 'stock'):
+        raise ValueError(f"campo desconocido: {item['campo']}")
+
+    try:
+        valor = Decimal(str(item['valor']))
+    except (InvalidOperation, ValueError, TypeError):
+        raise ValueError(f"El valor {item['valor']} no es un número")
+
+    return producto, valor
